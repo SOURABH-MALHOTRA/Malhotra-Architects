@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Architectural from "../images/Architectural.jpeg";
-import Interior from "../images/Interior.jpeg";
-import Sustainable from "../images/Sustainable.jpeg";
-import ProjectManagement from "../images/ProjectManagement.jpeg";
+import Architectural from "../assests/images/Architectural.jpeg";
+import Interior from "../assests/images/Interior.jpeg";
+import Sustainable from "../assests/images/Sustainable.jpeg";
+import ProjectManagement from "../assests/images/ProjectManagement.jpeg";
 const Services = () => {
   const navigate = useNavigate();
 

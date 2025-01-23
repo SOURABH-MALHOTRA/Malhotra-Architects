@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import logo from "../images/Logo.jpg";
+import logo from "../assests/images/Logo.jpg";
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8">
