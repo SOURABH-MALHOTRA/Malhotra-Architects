@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import kitchen from "../assests/images/kitchen.jpg";
-import LivingRoom from "../assests/images/Living room.jpg";
-import Bedroom from "../assests/images/Master Bedroom.avif";
+import kitchen from "../assets/images/kitchen.jpg";
+import LivingRoom from "../assets/images/Living room.jpg";
+import Bedroom from "../assets/images/Master Bedroom.avif";
 import Services from "./Services.jsx";
 import About from "./About.jsx";
 import Contact from "./Contact.jsx";
