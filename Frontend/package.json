@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postinstall": "chmod +x node_modules/.bin/vite"
+    "preview": "vite preview"
+   
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=16.0.0"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.10",
