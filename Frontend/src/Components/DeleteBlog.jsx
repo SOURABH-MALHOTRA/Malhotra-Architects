@@ -6,15 +6,19 @@ const DeleteBlog = () => {
   const [expandedPosts, setExpandedPosts] = useState(new Set());
 
   useEffect(() => {
-    fetch("http://localhost:7777/login/blogData")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/login/blogData`)
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching blog posts:", error));
   }, []);
 
   const deletePost = (id) => {
-    fetch(`http://localhost:7777/login/deletepost/${id}`, {
+    const token = localStorage.getItem("accessToken");
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/login/deletepost/${id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => {
         if (response.ok) {
@@ -63,7 +67,7 @@ const DeleteBlog = () => {
                 {post.Photo && (
                   <div className="h-[200px] w-full rounded-lg overflow-hidden mb-3">
                     <img
-                      src={`http://localhost:7777${post.Photo}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}${post.Photo}`}
                       alt="Blog"
                       className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300 mb-"
                     />
@@ -75,7 +79,7 @@ const DeleteBlog = () => {
                     <video
                       className="w-full h-full object-contain"
                       controls
-                      src={`http://localhost:7777${post.Video}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}${post.Video}`}
                     />
                   </div>
                 )}

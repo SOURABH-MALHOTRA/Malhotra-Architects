@@ -29,11 +29,17 @@ const Blog = () => {
       formData.append("content", newPost.content);
       if (newPost.image) formData.append("image", newPost.image);
       if (newPost.video) formData.append("video", newPost.video);
-
-      const response = await fetch("http://localhost:7777/login/blog", {
-        method: "POST",
-        body: formData,
-      });
+      const token = localStorage.getItem("accessToken");
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/login/blog`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
 
       const data = await response.json();
       console.log("Server Response:", data);

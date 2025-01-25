@@ -8,7 +8,7 @@ const Project = () => {
 
   const fetchBlogData = async () => {
     try {
-      const response = await fetch("http://localhost:7777/login/blogData");
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login/blogData`);
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
@@ -43,12 +43,12 @@ const Project = () => {
       <div className="bg-white rounded-lg shadow-md overflow-hidden w-full h-full flex flex-col">
         <div className="aspect-video w-full overflow-hidden bg-gray-100">
           <a
-            href={`http://localhost:7777${mediaUrl}`}
+            href={`${import.meta.env.VITE_BACKEND_URL}${mediaUrl}`}
             className="block w-full h-full"
           >
             {type === "image" ? (
               <img
-                src={`http://localhost:7777${mediaUrl}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}${mediaUrl}`}
                 alt="Blog Image"
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
@@ -56,7 +56,7 @@ const Project = () => {
               <video
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 controls
-                src={`http://localhost:7777${mediaUrl}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}${mediaUrl}`}
               />
             )}
           </a>

@@ -1,5 +1,7 @@
 const User = require("../Model/login.js");
 const blog = require("../Model/blog.js");
+const AccessToken = require("../Middleware/accessToken.js");
+const RefreshToken = require("../Middleware/refreshToken.js");
 async function login(req, res) {
   const body = req.body;
   const user = await User.findOne({
@@ -9,7 +11,32 @@ async function login(req, res) {
   if (!user) {
     return res.status(401).send({ message: "Invalid credentials" });
   }
-  return res.status(200).send({ message: "Login successfull", user });
+  const accessToken = await AccessToken(user._id);
+  const refreshToken = await RefreshToken(user._id);
+
+  const updatedUser = await User.findByIdAndUpdate(user?._id, {
+    last_login_date: new Date(),
+  });
+
+  const cookieOption = {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  };
+
+  res.cookie("accessToken", accessToken, cookieOption);
+  res.cookie("refreshToken", refreshToken, cookieOption);
+
+  return res.send({
+    message: "Login successfully",
+    user,
+    error: false,
+    success: true,
+    data: {
+      accessToken,
+      refreshToken,
+    },
+  });
 }
 
 async function blogify(req, res) {

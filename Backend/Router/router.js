@@ -2,7 +2,7 @@ const { login, blogify, deletePost } = require("../Controller/cntrl");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-// const {  Authentication,createToken } = require("../Middleware/Auth.jsx");
+const auth = require("../Middleware/auth.js");
 const blog = require("../Model/blog.js");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -22,7 +22,7 @@ router.post("/user", login);
 
 router.post(
   "/blog",
-  upload.fields([{ name: "image" }, { name: "video" }]),
+  upload.fields([{ name: "image" }, { name: "video" }]),auth,
   blogify
 );
 
@@ -31,6 +31,6 @@ router.get("/blogData", async (req, res) => {
   res.send(data);
 });
 
-router.delete("/deletepost/:id", deletePost);
+router.delete("/deletepost/:id",auth, deletePost);
 
 module.exports = router;

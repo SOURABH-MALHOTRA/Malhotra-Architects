@@ -3,6 +3,8 @@ const cors = require("cors");
 const path = require("path");
 const useRouter = require("./Router/router.js");
 const { connectToMongoDB } = require("./connect");
+const cookieParser = require("cookie-parser");
+const morgan = require( "morgan");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
@@ -20,11 +22,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cookieParser());
+app.use(morgan());
 app.use("/Uploads", express.static("Uploads"));
+
+//Routes
 app.use("/login", useRouter);
 
-module.exports = app;
+
 
 
 if (process.env.NODE_ENV !== 'vercel') {

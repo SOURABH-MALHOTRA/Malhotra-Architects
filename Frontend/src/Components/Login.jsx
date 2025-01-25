@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:7777/login/user", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,21 +24,21 @@ const Login = () => {
       });
 
       const data = await response.json();
-      console.log(data);
-      const Email = import.meta.env.VITE_EMAIL;
-      const Password = import.meta.env.VITE_PASSWORD;
-      if (
-        data &&
-        data.user &&
-        data.user.Email === Email &&
-        data.user.Password === Password
-      ) {
+      if (response.ok && data.success) {
+        localStorage.setItem("accessToken", data.data.accessToken);
+        localStorage.setItem("refreshToken", data.data.refreshToken);
+        console.log(data.data.accessToken);
+        console.log(data.data.refreshToken);
+
+        toast.success("Login Successful");
         navigate("/blog");
       } else {
+        // Handle invalid credentials or other errors
         toast.error("Invalid Credentials");
       }
     } catch (error) {
-      console.log("register", error);
+      console.error("Error during login:", error);
+      toast.error("Something went wrong. Please try again.");
     }
   };
 

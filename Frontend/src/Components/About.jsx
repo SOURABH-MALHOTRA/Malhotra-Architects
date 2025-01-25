@@ -38,7 +38,7 @@ const About = () => {
                   className="rounded-lg shadow-xl w-full max-w-md"
                 />
               </div>
-              <div className="mr-24">
+              <div className="mr-20">
                 <h2 className="text-4xl font-bold mb-3 text-blue-700">
                   Gaurav Malhotra
                 </h2>
