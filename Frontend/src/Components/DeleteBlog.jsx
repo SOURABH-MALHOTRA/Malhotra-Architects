@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+
 const DeleteBlog = () => {
   const [posts, setPosts] = useState([]);
   const [expandedPosts, setExpandedPosts] = useState(new Set());
@@ -18,6 +19,8 @@ const DeleteBlog = () => {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
+        
+        
       },
     })
       .then((response) => {

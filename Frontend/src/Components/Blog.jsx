@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
 const Blog = () => {
   const [newPost, setNewPost] = useState({
     title: "",
@@ -22,6 +23,7 @@ const Blog = () => {
       toast.warning("Title and content are required");
       return;
     }
+    const token = localStorage.getItem("accessToken"); 
 
     try {
       const formData = new FormData();
@@ -29,7 +31,7 @@ const Blog = () => {
       formData.append("content", newPost.content);
       if (newPost.image) formData.append("image", newPost.image);
       if (newPost.video) formData.append("video", newPost.video);
-      const token = localStorage.getItem("accessToken");
+     
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/login/blog`,
         {
@@ -38,6 +40,7 @@ const Blog = () => {
             Authorization: `Bearer ${token}`,
           },
           body: formData,
+          
         }
       );
 

@@ -169,7 +169,7 @@ const Contact = () => {
                   <p>gmgaurav21@gmail.com</p>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="mr-4 h-6 w-6 flex-shrink-0 mt-1 text-blue-500" />
+                  <MapPin className="mr-4 h-6 w-6 flex-shrink-0 mb-16 lg:mb-1 sm:mb-1 text-blue-500" />
                   <p>
                     Malhotra Architects, 2085, Cross Rd 10, Kacha Bazar, Chain
                     Mandi, Sadar Bazar, Ambala Cantt, Haryana 133001

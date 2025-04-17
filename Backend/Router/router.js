@@ -21,8 +21,8 @@ const router = express.Router();
 router.post("/user", login);
 
 router.post(
-  "/blog",
-  upload.fields([{ name: "image" }, { name: "video" }]),auth,
+  "/blog",auth,
+  upload.fields([{ name: "image" }, { name: "video" }]),
   blogify
 );
 
@@ -31,6 +31,6 @@ router.get("/blogData", async (req, res) => {
   res.send(data);
 });
 
-router.delete("/deletepost/:id",auth, deletePost);
+router.delete("/deletepost/:id", auth,deletePost);
 
 module.exports = router;

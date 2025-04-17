@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
+
 const Project = () => {
   const [data, setData] = useState([]);
   const [expandedCards, setExpandedCards] = useState({});
   const maxLength = 150; // Adjust this value to control initial text length
-
+                                                                  
   const fetchBlogData = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login/blogData`);

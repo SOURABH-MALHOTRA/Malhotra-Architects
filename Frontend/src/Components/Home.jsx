@@ -81,7 +81,7 @@ const Home = () => {
       <div className="absolute inset-0 bg-black bg-opacity-30">
         <div className="container mx-auto px-6 h-full flex items-center">
           <div className="text-white">
-            <h1 className="text-6xl font-bold mb-4 drop-shadow-lg">
+            <h1 className="lg:text-6xl text-5xl font-bold mb-4 drop-shadow-lg">
               Malhotra Architects
             </h1>
             <p className="text-2xl mb-8 drop-shadow-md">

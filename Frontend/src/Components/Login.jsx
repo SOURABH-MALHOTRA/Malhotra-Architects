@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+ 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -13,13 +13,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("accessToken"); 
 
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
+          Authorization: `Bearer ${token}`,
+          },
         body: JSON.stringify(formData),
       });
 
