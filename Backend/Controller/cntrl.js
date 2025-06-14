@@ -78,4 +78,5 @@ async function deletePost(req, res) {
   }
 }
 
+
 module.exports = { login, blogify, deletePost };

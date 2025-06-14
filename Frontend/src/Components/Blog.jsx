@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const [newPost, setNewPost] = useState({
     title: "",
     content: "",
@@ -15,6 +16,12 @@ const Blog = () => {
     const file = e.target.files[0];
     setNewPost({ ...newPost, [type]: file });
   };
+  const handlelogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    navigate("/");
+    toast.success("Logged out successfully");
+      }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -153,6 +160,9 @@ const Blog = () => {
             All Blog
           </button>
         </Link>
+         <button onClick={handlelogout} className="w-64 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 mx-6">
+            Logout
+          </button>
       </div>
     </div>
   );
