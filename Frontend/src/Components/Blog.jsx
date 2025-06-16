@@ -156,11 +156,11 @@ const Blog = () => {
 
       <div className="flex justify-center mt-8">
         <Link to="/delete/blog" className="text-white">
-          <button className="w-64 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+          <button className="w-40 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 " >
             All Blog
           </button>
         </Link>
-         <button onClick={handlelogout} className="w-64 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 mx-6">
+         <button onClick={handlelogout} className="w-40 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg font-semibold px-6 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 mx-6">
             Logout
           </button>
       </div>
