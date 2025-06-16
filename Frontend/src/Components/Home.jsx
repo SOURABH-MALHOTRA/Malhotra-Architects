@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import kitchen from "../assets/kitchen.jpg";
+import kitchen from "../assets/Kitchen.jpg";
 import LivingRoom from "../assets/Living room.jpg";
 import Bedroom from "../assets/Master Bedroom.avif";
 import Services from "./Services.jsx";
