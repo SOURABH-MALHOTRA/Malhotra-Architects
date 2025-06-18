@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan());
-app.use("/Uploads", express.static("Uploads"));
+app.use("/uploads", express.static("uploads"));
 
 //Routes
 app.use("/login", useRouter);

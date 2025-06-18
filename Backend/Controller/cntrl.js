@@ -48,8 +48,8 @@ async function blogify(req, res) {
     const post = await blog.create({
       Title: title,
       Content: content,
-      Photo: imageFile ? `/Uploads/${imageFile.filename}` : null,
-      Video: videoFile ? `/Uploads/${videoFile.filename}` : null,
+      Photo: imageFile ? `/uploads/${imageFile.filename}` : null,
+      Video: videoFile ? `/uploads/${videoFile.filename}` : null,
     });
 
     res.status(201).send({

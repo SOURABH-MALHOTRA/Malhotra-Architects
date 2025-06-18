@@ -6,7 +6,7 @@ const auth = require("../Middleware/auth.js");
 const blog = require("../Model/blog.js");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../Uploads")); // Ensure the path is relative to this file
+    cb(null, path.join(__dirname, "../uploads")); // Ensure the path is relative to this file
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = `${Date.now()}-${file.originalname}`;

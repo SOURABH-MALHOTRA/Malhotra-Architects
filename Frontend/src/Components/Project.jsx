@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Project = () => {
   const [data, setData] = useState([]);
   const [expandedCards, setExpandedCards] = useState({});
-  const maxLength = 150; // Adjust this value to control initial text length
+  const maxLength = 100; // Adjust this value to control initial text length
                                                                   
   const fetchBlogData = async () => {
     try {
@@ -42,7 +42,7 @@ const Project = () => {
 
     return (
       <div className="bg-white rounded-lg shadow-md overflow-hidden w-full h-full flex flex-col">
-        <div className="aspect-video w-full overflow-hidden bg-gray-100">
+        <div className="aspect-video w-full overflow-hidden bg-gray-100 h-48 sm:h-60">
           <a
             href={`${import.meta.env.VITE_BACKEND_URL}${mediaUrl}`}
             className="block w-full h-full"
@@ -68,7 +68,7 @@ const Project = () => {
           </h2>
 
           <div className="text-md text-gray-600 flex-1 whitespace-pre-line break-words">
-            <p>{displayContent}</p>
+            <p className="text-sm text-gray-600 flex-1 whitespace-pre-line break-words">{displayContent}</p>
             {shouldShowReadMore && (
               <button
                 onClick={() => toggleContent(index)}
