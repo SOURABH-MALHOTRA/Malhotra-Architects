@@ -29,10 +29,11 @@ app.use("/uploads", express.static("uploads"));
 
 
 //Routes
-app.use("/login", useRouter);
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
 });
+app.use("/login", useRouter);
+
 
 
 
